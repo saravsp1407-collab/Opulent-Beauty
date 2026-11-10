@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opulent Beauty</title>
+<meta name="description" content="Explore o catálogo Opulent Beauty, com busca, categorias e detalhes dos produtos.">
+<meta name="theme-color" content="#FBF4EB">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<div class="aviso-demo">Opulent Beauty · Beleza em cada detalhe</div>
+<header class="cabecalho">
+<div class="container barra">
+<a class="marca" href="index.html" aria-label="Opulent Beauty — início"><img class="logo" src="assets/logo-opulent-beauty.svg" alt="Opulent Beauty" width="1000" height="260">
+</a>
+<button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu">Menu <span aria-hidden="true">☰</span>
+</button>
+<nav id="menu" aria-label="Navegação principal">
+<a href="index.html">Início</a>
+<a href="produtos.html" aria-current="page">Produtos</a>
+<a href="sobre.html">Sobre</a>
+</nav>
+</div>
+</header>
+<main id="conteudo">
+<section class="container pagina-topo catalogo-apresentacao">
+<div class="catalogo-hero">
+  <div class="catalogo-hero-texto">
+    <p class="sobretitulo">UM UNIVERSO DE BELEZA</p>
+    <h1>Encontre sua próxima<br><em>inspiração.</em></h1>
+    <p class="introducao">Marcas reconhecidas pelo mundo, texturas que encantam e detalhes que fazem a diferença. Explore a seleção Opulent Beauty.</p>
+    <a class="botao" href="#catalogo">Descobrir produtos <span aria-hidden="true">↗</span></a>
+  </div>
+  <figure class="catalogo-hero-foto">
+    <img src="assets/foto-principal.jpg" alt="Imagem de apresentação da Opulent Beauty" width="1200" height="1655" fetchpriority="high">
+  </figure>
+</div>
+</section>
+<section class="container catalogo" id="catalogo" aria-label="Catálogo de produtos">
+<div class="painel-demo">
+<div>
+<strong>Sua próxima descoberta está aqui</strong>
+<p>51 produtos de maquiagem, em 10 categorias. Explore nossa seleção e consulte os detalhes de cada item.</p>
+</div>
+<span class="etiqueta">51 produtos</span>
+</div>
+<form id="form-busca" class="filtros" role="search">
+<div class="campo campo-busca">
+<label for="busca">Buscar produto</label>
+<p class="ajuda-busca" id="ajuda-busca">Busque por produto, marca ou tipo de maquiagem. Use as setas e Enter para escolher uma sugestão.</p>
+<p class="somente-leitor" id="status-sugestoes" role="status" aria-live="polite"></p>
+<div class="busca-grupo">
+<div class="busca-controle" id="busca-controle">
+<input id="busca" name="busca" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sugestoes-lista" aria-describedby="ajuda-busca" autocomplete="off" placeholder="Ex.: base, Dior, batom…" maxlength="120">
+<div class="sugestoes-painel" id="sugestoes-painel" hidden>
+<p class="sugestoes-titulo" id="sugestoes-titulo">Sugestões de produtos</p>
+<ul id="sugestoes-lista" role="listbox" aria-label="Sugestões de produtos"></ul>
+</div>
+</div>
+<button class="botao" type="submit">Buscar <span aria-hidden="true">↗</span>
+</button>
+</div>
+</div>
+<div class="campo">
+<label for="categoria">Categoria</label>
+<select id="categoria" name="categoria">
+<option value="todas">Todas as categorias</option>
+</select>
+</div>
+<div class="campo"><label for="marca-filtro">Marca</label><select id="marca-filtro" name="marca"><option value="todas">Todas as marcas</option></select></div>
+<button id="limpar" class="botao-limpar" type="button">Limpar filtros</button>
+</form>
+<div class="resultado-barra">
+<p id="contagem" role="status" aria-live="polite">
+</p>
+<span>Seleção de maquiagem</span>
+</div>
+<div id="lista-produtos" class="grade-produtos">
+</div>
+<div class="carregar-area"><button class="botao-contorno" type="button" id="carregar-mais" hidden>Mostrar mais produtos</button></div>
+<div id="sem-resultados" class="sem-resultados" hidden>
+<span class="flor" aria-hidden="true">✳</span>
+<h2>Nenhum produto encontrado</h2>
+<p>Tente outro nome ou escolha uma categoria diferente.</p>
+<button class="botao" id="limpar-vazio" type="button">Ver todos os produtos</button>
+</div>
+<noscript>
+<p>Ative o JavaScript para usar a busca e visualizar os produtos.</p>
+</noscript>
+<section id="detalhes" class="detalhes" tabindex="-1" aria-labelledby="detalhes-titulo" hidden>
+<div class="detalhes-topo">
+<p class="sobretitulo">DETALHES DO PRODUTO</p>
+<button id="fechar-detalhes" type="button" class="botao-limpar">Fechar detalhes ×</button>
+</div>
+<div id="detalhes-conteudo">
+</div>
+</section>
+</section>
+</main>
+<footer class="rodape">
+<div class="container rodape-grade">
+<a class="marca" href="index.html" aria-label="Opulent Beauty — início"><img class="logo" src="assets/logo-opulent-beauty.svg" alt="Opulent Beauty" width="1000" height="260"></a>
+</div>
+
+</footer>
+<script src="dados.js" defer>
+</script>
+<script src="script.js" defer>
+</script>
+</body>
+</html>
