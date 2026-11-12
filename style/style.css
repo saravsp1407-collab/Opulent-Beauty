@@ -1360,3 +1360,74 @@ select {
 .foto-duplicar { display: flex; gap: 8px; align-items: start; font-size: 13px; margin: 12px 0; }
 .foto-duplicar input { width: auto; margin-top: 4px; }
 @media(max-width: 900px) { .fotos-grade { grid-template-columns: 1fr; } .foto-painel img { max-width: 400px; height: 330px; } }
+
+
+/* Rodapé Opulent Beauty — utiliza a paleta e a tipografia já definidas no site. */
+.rodape {
+    margin-top: 0;
+    padding: 42px 0 18px;
+    background: var(--champagne);
+    color: var(--tinta);
+    border-top: 1px solid var(--borda);
+}
+.rodape .rodape-grade {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    align-items: start;
+    justify-items: stretch;
+    gap: 32px;
+    padding-bottom: 30px;
+}
+.rodape-identidade p {
+    margin: 12px 0 0;
+    font-size: 13px;
+}
+.rodape-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.rodape-links h2 {
+    margin: 0 0 5px;
+    color: var(--rose);
+    font: 700 11px/1.4 Arial, Helvetica, sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.rodape-links a,
+.rodape-fim a {
+    color: var(--tinta);
+    font-size: 13px;
+    transition: color .2s ease;
+}
+.rodape-links a:hover,
+.rodape-fim a:hover {
+    color: var(--rose);
+}
+.rodape-fim {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    border-top: 1px solid var(--borda);
+    padding-block: 16px 0;
+    color: var(--tinta);
+    font-size: 11px;
+}
+.rodape-fim p { margin: 0; }
+.rodape-fim a { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 700px) {
+    .rodape .rodape-grade {
+        grid-template-columns: 1fr 1fr;
+        justify-items: start;
+        gap: 26px 18px;
+    }
+    .rodape-identidade { grid-column: 1 / -1; }
+    .rodape-fim {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}

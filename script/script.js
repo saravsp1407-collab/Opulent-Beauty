@@ -1,26 +1,45 @@
 const botaoMenu = document.querySelector('.menu-botao');
 const menu = document.querySelector('#menu');
-botaoMenu.addEventListener('click', function () {
-    const aberto = botaoMenu.getAttribute('aria-expanded') === 'true';
-    botaoMenu.setAttribute('aria-expanded', String(!aberto));
-    menu.classList.toggle('aberto', !aberto);
+
+if (botaoMenu && menu) {
+    botaoMenu.addEventListener('click', function () {
+        const aberto = botaoMenu.getAttribute('aria-expanded') === 'true';
+        botaoMenu.setAttribute('aria-expanded', String(!aberto));
+        menu.classList.toggle('aberto', !aberto);
+    });
+
+    menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            menu.classList.remove('aberto');
+            botaoMenu.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    document.addEventListener('keydown', function (evento) {
+        if (evento.key === 'Escape' && menu.classList.contains('aberto')) {
+            menu.classList.remove('aberto');
+            botaoMenu.setAttribute('aria-expanded', 'false');
+            botaoMenu.focus();
+        }
+    });
+}
+
+const caminhoBase = window.location.pathname.includes('/pages/') ? '../' : '';
+
+document.querySelectorAll('.ano-atual').forEach(function (elementoAno) {
+    elementoAno.textContent = new Date().getFullYear();
 });
-document.addEventListener('keydown', function (evento) {
-    if (evento.key === 'Escape' && menu.classList.contains('aberto')) {
-        menu.classList.remove('aberto');
-        botaoMenu.setAttribute('aria-expanded', 'false');
-        botaoMenu.focus();
-    }
-});
+
 function imagemProduto(id) {
-    return informacoesProdutos[id].imagem;
+    const caminho = informacoesProdutos[id].imagem;
+    return caminhoBase + caminho;
 }
 function prepararFoto(imagem) {
     imagem.referrerPolicy = 'no-referrer';
     imagem.addEventListener('error', function () {
         if (!imagem.getAttribute('data-falhou')) {
             imagem.setAttribute('data-falhou', 'sim');
-            imagem.src = 'assets/foto-indisponivel.svg';
+            imagem.src = caminhoBase + 'assets/foto-indisponivel.svg';
             imagem.alt = 'Foto não carregada. Consulte a fonte da foto nos detalhes.';
         }
     });
@@ -65,7 +84,7 @@ function criarCard(produto, naHome) {
     info.append(linha);
     if (naHome) {
         const link = elemento('a', 'botao-contorno', 'Ver detalhes ↗');
-        link.href = 'produtos.html?produto=' + produto.id_produto;
+        link.href = caminhoBase + 'pages/produtos.html?produto=' + produto.id_produto;
         link.setAttribute('aria-label', 'Ver detalhes de ' + produto.nome);
         info.append(link);
     } else {
