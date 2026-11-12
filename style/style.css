@@ -1366,9 +1366,9 @@ select {
 .rodape {
     margin-top: 0;
     padding: 42px 0 18px;
-    background: var(--champagne);
+    background: #F2DCE3;
     color: var(--tinta);
-    border-top: 1px solid var(--borda);
+    border-top: 1px solid #E8C5D0;
 }
 .rodape .rodape-grade {
     display: grid;
